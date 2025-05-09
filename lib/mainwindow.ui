@@ -25,12 +25,23 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QTimeEdit" name="timeEdit"/>
+      <widget class="QTimeEdit" name="timeEdit">
+       <property name="toolTip">
+        <string>HH:mm</string>
+       </property>
+       <property name="time">
+        <time>
+         <hour>0</hour>
+         <minute>20</minute>
+         <second>0</second>
+        </time>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string>PushButton</string>
+        <string>start</string>
        </property>
       </widget>
      </item>
