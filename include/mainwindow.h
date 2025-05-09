@@ -19,7 +19,8 @@ public:
     ~MainWindow() override;
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui{};
+    uint32_t time;
 };
 
 #endif //MAINWINDOW_H

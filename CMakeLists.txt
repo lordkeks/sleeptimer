@@ -16,7 +16,10 @@ find_package(Qt6 COMPONENTS
 
 add_executable(sleeptimer src/main.cpp
         include/mainwindow.h
-        lib/mainwindow.cpp)
+        lib/mainwindow.cpp
+        lib/mainwindow.ui
+)
+target_include_directories(sleeptimer PRIVATE include)
 target_link_libraries(sleeptimer
         Qt::Core
         Qt::Gui

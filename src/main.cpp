@@ -20,8 +20,10 @@ using std::cout, std::endl;
 int main(int argc, char *argv[]) {
     cout << "starting sleeptimer " << VERSION_INFO << endl;
     QApplication app(argc, argv);
-    MainWindow w;
-    w.show();
+    MainWindow win;
+    win.show();
 
-    return app.exec();
+    int retval = QApplication::exec();//app.exec();
+    cout << "ending sleeptimer with exit code " << retval << endl;
+    return retval;
 }
