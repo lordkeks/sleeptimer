@@ -20,7 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui{};
-    uint32_t time;
+    bool running = false;
 };
 
 #endif //MAINWINDOW_H

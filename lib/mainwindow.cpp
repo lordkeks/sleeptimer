@@ -7,7 +7,11 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow){
-        ui->setupUi(this);
+    ui->setupUi(this);
+    ui->pushButton->setText("start");
+    ui->timeEdit->setEnabled(!this->running);
 }
 
-MainWindow::~MainWindow() = default;
+MainWindow::~MainWindow() {
+    delete ui;
+}
