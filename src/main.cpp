@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include <QApplication>
-#include "../include/mainwindow.h"
+#include "mainwindow.h"
 
 using std::cout, std::endl;
 
