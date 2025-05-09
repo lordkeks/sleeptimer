@@ -21,13 +21,15 @@ MainWindow::~MainWindow() {
 
 void MainWindow::on_pushButton_clicked() {
     //cout << "button clicked" << endl;
-    if (this->running) {
+    if (this->running) { // timer is paused
         this->ui->pushButton->setText("start");
+        this->ui->timeEdit->setEnabled(true);
         this->running = false;
         cout << "paused" << endl;
     }
-    else {
+    else { // timer is running
         this->ui->pushButton->setText("pause");
+        this->ui->timeEdit->setEnabled(false);
         this->running = true;
         cout << "running" << endl;
     }

@@ -29,6 +29,9 @@
        <property name="toolTip">
         <string>HH:mm</string>
        </property>
+       <property name="displayFormat">
+        <string>HH:mm:ss</string>
+       </property>
        <property name="time">
         <time>
          <hour>0</hour>
