@@ -14,7 +14,7 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(sleeptimer main.cpp)
+add_executable(sleeptimer src/main.cpp)
 target_link_libraries(sleeptimer
         Qt::Core
         Qt::Gui
