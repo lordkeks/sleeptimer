@@ -5,7 +5,7 @@ on:
   push:
     tags:
       - 'v*'  # Only run when a tag like v1.0.0 is pushed
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: windows-latest
