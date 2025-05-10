@@ -20,12 +20,6 @@ jobs:
           version: 6.9.0  # <-- insert correct Qt version
           arch: win64_mingw  # or use `win64_msvc2019_64` if you're on MSVC
 
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: 6.9.0  # <-- insert correct Qt version
-          arch: win64_mingw
-
       - name: Build with CMake
         run: |
           mkdir build
