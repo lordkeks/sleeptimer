@@ -46,21 +46,21 @@ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     endif ()
 
     # Copy Qt platform DLLs (for example, qwindows.dll for Windows)
-    if (EXISTS "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll")
-        add_custom_command(TARGET sleeptimer POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E make_directory
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
-        add_custom_command(TARGET sleeptimer POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy
-                "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
-    endif ()
+#    if (EXISTS "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll")
+#        add_custom_command(TARGET sleeptimer POST_BUILD
+#                COMMAND ${CMAKE_COMMAND} -E make_directory
+#                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+#        add_custom_command(TARGET sleeptimer POST_BUILD
+#                COMMAND ${CMAKE_COMMAND} -E copy
+#                "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
+#                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+#    endif ()
 
     # Copy Qt DLLs (Core, Gui, Widgets) to the target folder
-    foreach (QT_LIB Core Gui Widgets)
-        add_custom_command(TARGET sleeptimer POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy
-                "${QT_INSTALL_PATH}/bin/Qt6${QT_LIB}${DEBUG_SUFFIX}.dll"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
-    endforeach (QT_LIB)
+#    foreach (QT_LIB Core Gui Widgets)
+#        add_custom_command(TARGET sleeptimer POST_BUILD
+#                COMMAND ${CMAKE_COMMAND} -E copy
+#                "${QT_INSTALL_PATH}/bin/Qt6${QT_LIB}${DEBUG_SUFFIX}.dll"
+#                "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
+#    endforeach (QT_LIB)
 endif ()

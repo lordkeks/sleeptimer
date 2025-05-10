@@ -27,6 +27,10 @@ jobs:
           cmake .. -G "MinGW Makefiles"
           mingw32-make
 
+      - name: Deploy Qt dependencies
+        run: |
+          & "${Env:QT_INSTALL_PATH}/bin/windeployqt.exe" --release build\sleeptimer.exe
+
       - name: Bundle Qt DLLs
         run: |
           windeployqt --release build\sleeptimer.exe
