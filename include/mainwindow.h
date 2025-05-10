@@ -6,6 +6,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
+#include <QTime>
 
 namespace Ui {
     class MainWindow;
@@ -23,8 +25,13 @@ public:
 
 private:
     Ui::MainWindow *ui{};
+    QTimer *timer;
+    QTime currentTime;
     bool running = false;
+
     void on_pushButton_clicked();
+    void on_timer_tick();
+
 };
 
 #endif //MAINWINDOW_H
