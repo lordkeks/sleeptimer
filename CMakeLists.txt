@@ -6,7 +6,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.9.0/mingw_64/lib/cmake")
+# If using GitHub Actions, set the Qt prefix path dynamically
+if(DEFINED ENV{QT_INSTALL_PATH})
+    set(CMAKE_PREFIX_PATH $ENV{QT_INSTALL_PATH}/lib/cmake)
+else()
+    set(CMAKE_PREFIX_PATH "C:/Qt/6.9.0/mingw_64/lib/cmake")
+endif()
 
 find_package(Qt6 COMPONENTS
         Core
