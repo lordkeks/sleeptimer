@@ -27,9 +27,8 @@ jobs:
           cmake .. -G "MinGW Makefiles"
           mingw32-make
 
-      - name: Deploy Qt dependencies
-        run: |
-          & "${Env:QT_INSTALL_PATH}/bin/windeployqt.exe" --release build\sleeptimer.exe
+      - name: Add Qt tools to PATH
+        run: echo "$Env:Qt6_DIR/../../bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
 
       - name: Bundle Qt DLLs
         run: |
