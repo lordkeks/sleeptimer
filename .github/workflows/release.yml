@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - master
-    tags:
-      - 'v*'  # Only run when a tag like v1.0.0 is pushed
+    #tags:
+    #  - 'v*'  # Only run when a tag like v1.0.0 is pushed
   workflow_dispatch:
 jobs:
   build:
@@ -34,6 +34,7 @@ jobs:
 
       - name: Bundle Qt DLLs
         run: |
+          cd build
           windeployqt --release build\sleeptimer.exe
 
       - name: Create Release
@@ -41,5 +42,9 @@ jobs:
         with:
           files: |
             build/sleeptimer.exe
+            build/Qt6Core.dll
+            build/Qt6Gui.dll
+            build/Qt6Widgets.dll
+            build/plugins/platforms/qwindows.dll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
