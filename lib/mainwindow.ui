@@ -6,43 +6,65 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>226</width>
-    <height>80</height>
+    <width>263</width>
+    <height>133</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>sleeptimer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>211</width>
-      <height>51</height>
+      <x>10</x>
+      <y>10</y>
+      <width>241</width>
+      <height>91</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QTimeEdit" name="timeEdit">
-       <property name="toolTip">
-        <string>HH:mm</string>
-       </property>
-       <property name="displayFormat">
-        <string>HH:mm:ss</string>
-       </property>
-       <property name="time">
-        <time>
-         <hour>0</hour>
-         <minute>20</minute>
-         <second>0</second>
-        </time>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QTimeEdit" name="timeEdit">
+         <property name="toolTip">
+          <string>HH:mm</string>
+         </property>
+         <property name="displayFormat">
+          <string>HH:mm:ss</string>
+         </property>
+         <property name="time">
+          <time>
+           <hour>0</hour>
+           <minute>20</minute>
+           <second>0</second>
+          </time>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="addButton">
+           <property name="text">
+            <string>+10min</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="subButton">
+           <property name="text">
+            <string>-10min</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="startButton">
        <property name="text">
         <string>start</string>
        </property>

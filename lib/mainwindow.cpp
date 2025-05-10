@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <QTime>
+#include <QProcess>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow), timer(new QTimer(this)){
     ui->setupUi(this);
 
-    connect(ui->pushButton, &QPushButton::released, this, &MainWindow::on_pushButton_clicked);
+    connect(ui->startButton, &QPushButton::released, this, &MainWindow::start_pause);
+    connect(ui->addButton, &QPushButton::released, this, &MainWindow::add_time);
+    connect(ui->subButton, &QPushButton::released, this, &MainWindow::sub_time);
     connect(timer, &QTimer::timeout, this, &MainWindow::on_timer_tick);
 }
 
@@ -21,18 +24,22 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked() {
+void MainWindow::start_pause() {
     //cout << "button clicked" << endl;
     if (running) { // timer is paused
-        ui->pushButton->setText("start");
+        ui->startButton->setText("start");
         ui->timeEdit->setEnabled(true);
+        ui->addButton->setEnabled(true);
+        ui->subButton->setEnabled(true);
         running = false;
         timer->stop();
         cout << "paused" << endl;
     }
     else { // timer is running
-        ui->pushButton->setText("pause");
+        ui->startButton->setText("pause");
         ui->timeEdit->setEnabled(false);
+        ui->addButton->setEnabled(false);
+        ui->subButton->setEnabled(false);
         running = true;
         timer->start(1000);
         cout << "running" << endl;
@@ -40,13 +47,24 @@ void MainWindow::on_pushButton_clicked() {
 }
 
 void MainWindow::on_timer_tick() {
-    QTime timeVal = ui->timeEdit->time();
+    const QTime timeVal = ui->timeEdit->time();
     if (timeVal <= QTime(0,0,0)){
         timer->stop();
         cout << "shutting down" << endl;
-        return;
+        //QProcess::execute("shutdown /s /f /t 0");
+        this->close();
     }
-    QTime newTime = timeVal.addSecs(-1);
+    const QTime newTime = timeVal.addSecs(-1);
     ui->timeEdit->setTime(newTime);
     //cout << "tick" << endl;
+}
+
+void MainWindow::add_time() const {
+    const QTime timeVal = ui->timeEdit->time();
+    ui->timeEdit->setTime(timeVal.addSecs(60*10));
+}
+
+void MainWindow::sub_time() const {
+    const QTime timeVal = ui->timeEdit->time();
+    ui->timeEdit->setTime(timeVal.addSecs(-60*10));
 }

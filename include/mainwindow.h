@@ -13,7 +13,7 @@ namespace Ui {
     class MainWindow;
 }
 
-class MainWindow : public QMainWindow {
+class MainWindow final : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -29,9 +29,10 @@ private:
     QTime currentTime;
     bool running = false;
 
-    void on_pushButton_clicked();
+    void start_pause();
     void on_timer_tick();
-
+    void add_time() const;
+    void sub_time() const;
 };
 
 #endif //MAINWINDOW_H
