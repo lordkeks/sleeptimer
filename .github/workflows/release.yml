@@ -34,7 +34,7 @@ jobs:
 
       - name: Bundle Qt DLLs
         run: |
-          cd build
+        #  cd build
           windeployqt --release build\sleeptimer.exe
 
       - name: Create Release
