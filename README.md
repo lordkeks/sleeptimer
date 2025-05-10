@@ -1,4 +1,4 @@
-![Build](https://github.com/lordkeks/sleeptimer/actions/workflows/release.yml/badge.svg?cachebust=1)
+![Release Build](https://github.com/lordkeks/sleeptimer/actions/workflows/release.yml/badge.svg?event=push)
 
 ### sleeptimer
 A simple desktop app that let's you set a timer to shutdown your pc.
