@@ -9,7 +9,7 @@
 //              The timer runs entirely within the app and shutdown is only provoked
 //              when the timer ends. So no shutdown when the app is quit.
 
-#define VERSION_INFO "1.0.3" //released 10.05.2025
+#define VERSION_INFO "1.0.4" //released 10.05.2025
 
 #include <iostream>
 #include <QApplication>
