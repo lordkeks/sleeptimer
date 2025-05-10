@@ -1,6 +1,9 @@
 //
 // Created by Christian on 09/05/2025.
 //
+#define DEBUG
+#define OS_WINDOWS
+//#define OS_LINUX
 
 #include <iostream>
 #include <QTime>
@@ -51,7 +54,15 @@ void MainWindow::on_timer_tick() {
     if (timeVal <= QTime(0,0,0)){
         timer->stop();
         cout << "shutting down" << endl;
-        //QProcess::execute("shutdown /s /f /t 0");
+#ifdef OS_WINDOWS
+    #ifndef DEBUG
+        QProcess::execute("shutdown /s /f /t 0");
+    #endif
+#elif ifdef OS_LINUX
+    #ifdef DEBUG
+        QProcess::execute("shutdown now");
+    #endif
+#endif
         this->close();
     }
     const QTime newTime = timeVal.addSecs(-1);
